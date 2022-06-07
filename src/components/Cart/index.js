@@ -1,3 +1,4 @@
+import { Modal } from "../Modal";
 import classes from "./style.module.css";
 
 export const Cart = () => {
@@ -7,10 +8,12 @@ export const Cart = () => {
     { id: "c3", name: "Sushi", amount: 2, price: 12.99 },
   ];
   return (
-    <div>
+    <Modal>
       {cartItems.map((items) => (
         <ul className={classes["cart-items"]}>
           <li>{items.name}</li>
+          <li>{items.price}</li>
+          <li>{items.amount}</li>
         </ul>
       ))}
       <div className={classes.total}>
@@ -21,6 +24,6 @@ export const Cart = () => {
         <button className={classes["button--alt"]}>Close</button>
         <button className={classes.button}>Order</button>
       </div>
-    </div>
+    </Modal>
   );
 };
