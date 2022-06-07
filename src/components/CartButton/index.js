@@ -2,9 +2,9 @@ import { CartIcon } from "../CartIcon";
 
 import classes from "./style.module.css";
 
-export const CartButton = () => {
+export const CartButton = ({ onClickCartHandler }) => {
   return (
-    <button className={classes.button}>
+    <button className={classes.button} onClick={onClickCartHandler}>
       <span className={classes.icon}>
         <CartIcon />
       </span>

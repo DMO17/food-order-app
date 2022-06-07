@@ -1,18 +1,7 @@
-import { Fragment } from "react";
-import { Cart } from "./components/Cart";
-import { Header } from "./components/Header";
-import { Meals } from "./components/Meals";
+import { AppContainer } from "./container/AppContainer";
 
 function App() {
-  return (
-    <Fragment>
-      <Cart />
-      <Header />
-      <main>
-        <Meals />
-      </main>
-    </Fragment>
-  );
+  return <AppContainer />;
 }
 
 export default App;

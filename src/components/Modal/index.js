@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import classes from "./style.module.css";
 
 const Backdrop = () => {
-  return <div className={classes.modal} />;
+  return <div className={classes.backdrop} />;
 };
 
 const ModalOverlay = ({ children }) => {

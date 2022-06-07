@@ -2,12 +2,12 @@ import { Fragment } from "react";
 import { CartButton } from "../CartButton";
 import classes from "./style.module.css";
 
-export const Header = () => {
+export const Header = ({ onClickCartHandler }) => {
   return (
     <Fragment>
       <header className={classes.header}>
         <h1>ReactMeals</h1>
-        <CartButton />
+        <CartButton onClickCartHandler={onClickCartHandler} />
       </header>
       <div className={classes["main-image"]}>
         <img
