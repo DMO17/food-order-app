@@ -10,23 +10,30 @@ import classes from "./style.module.css";
 // ];
 
 export const Cart = ({ onClickCartHandler }) => {
-  const { items, totalAmount } = useCartContext();
+  const { items, totalAmount, addItem, removeItem } = useCartContext();
 
   const totalCartAmount = `$${totalAmount.toFixed(2)}`;
 
-  const cartHandlerAdd = () => {};
+  const cartHandlerAdd = (item) => {
+    addItem({ ...item, amount: 1 });
+  };
 
-  const cartHandlerRemove = () => {};
+  const cartHandlerRemove = (id) => {
+    removeItem(id);
+  };
+
   return (
     <Modal>
-      {items.map((item, index) => (
-        <CartItem
-          {...item}
-          key={index}
-          cartHandlerAdd={cartHandlerAdd.bind(null, item.id)}
-          cartHandlerRemove={cartHandlerRemove.bind(null, item)}
-        />
-      ))}
+      <ul className={classes["cart-items"]}>
+        {items.map((item) => (
+          <CartItem
+            {...item}
+            key={item.id}
+            cartHandlerAdd={cartHandlerAdd.bind(null, item)}
+            cartHandlerRemove={cartHandlerRemove.bind(null, item.id)}
+          />
+        ))}
+      </ul>
       <div className={classes.total}>
         <span>Total Amount</span>
         <span>{totalCartAmount}</span>
