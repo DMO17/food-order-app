@@ -1,4 +1,5 @@
 import { useCartContext } from "../../context/CartProvider";
+import { CartItem } from "../CartItem";
 import { Modal } from "../Modal";
 import classes from "./style.module.css";
 
@@ -12,14 +13,19 @@ export const Cart = ({ onClickCartHandler }) => {
   const { items, totalAmount } = useCartContext();
 
   const totalCartAmount = `$${totalAmount.toFixed(2)}`;
+
+  const cartHandlerAdd = () => {};
+
+  const cartHandlerRemove = () => {};
   return (
     <Modal>
       {items.map((item, index) => (
-        <ul className={classes["cart-items"]} key={index}>
-          <li>{item.name}</li>
-          <li>{item.price}</li>
-          <li>{item.amount}</li>
-        </ul>
+        <CartItem
+          {...item}
+          key={index}
+          cartHandlerAdd={cartHandlerAdd.bind(null, item.id)}
+          cartHandlerRemove={cartHandlerRemove.bind(null, item)}
+        />
       ))}
       <div className={classes.total}>
         <span>Total Amount</span>
