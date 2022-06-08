@@ -10,8 +10,8 @@ const cartItems = [
 export const Cart = ({ onClickCartHandler }) => {
   return (
     <Modal>
-      {cartItems.map((items) => (
-        <ul className={classes["cart-items"]}>
+      {cartItems.map((items, index) => (
+        <ul className={classes["cart-items"]} key={index}>
           <li>{items.name}</li>
           <li>{items.price}</li>
           <li>{items.amount}</li>
