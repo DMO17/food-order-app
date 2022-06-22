@@ -3,7 +3,7 @@ import { MealItemForm } from "./MealItemForm";
 import classes from "./style.module.css";
 
 export const MealItem = ({ name, description, price, id }) => {
-  const { addItem, items } = useCartContext();
+  const { addItem } = useCartContext();
 
   const addToCartHandler = (amount) => {
     addItem({
@@ -12,8 +12,6 @@ export const MealItem = ({ name, description, price, id }) => {
       amount,
       price,
     });
-
-    console.log(items);
   };
 
   return (
